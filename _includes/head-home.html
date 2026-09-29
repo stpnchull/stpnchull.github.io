@@ -1,0 +1,35 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#071827">
+  <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}Chris Hull is a Software Engineering Leader focused on distributed systems, edge and embedded AI, cloud infrastructure, and machine learning platforms.{% endif %}">
+  <meta name="author" content="Chris Hull">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}Chris Hull | Software Engineering Leader{% endif %}">
+  <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}Distributed systems, edge and embedded AI, cloud infrastructure, and ML platforms.{% endif %}">
+  <meta property="og:url" content="{{ site.url }}{{ site.baseurl }}{{ page.url }}">
+  <title>{% if page.title %}{{ page.title }}{% else %}Chris Hull | Software Engineering Leader{% endif %}</title>
+  <link rel="icon" href="{{ site.baseurl }}/assets/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="{{ site.baseurl }}/site.webmanifest">
+  {% if page.layout == 'page' or page.url == '/resume/' %}
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,600,700,800" rel="stylesheet">
+  <link rel="stylesheet" href="{{ site.baseurl }}/css/bootstrap.min.css" type="text/css">
+  <link rel="stylesheet" href="{{ site.baseurl }}/devicon/devicon.min.css" type="text/css">
+  <link rel="stylesheet" href="{{ site.baseurl }}/font-awesome/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="{{ site.baseurl }}/css/resume.css?v={{ site.time | date: '%s' }}" type="text/css">
+  {% endif %}
+  <link rel="stylesheet" href="{{ site.baseurl }}/css/home.css?v={{ site.time | date: '%s' }}">
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"Stephen Chris Hull",
+    "alternateName":"Chris Hull",
+    "url":"{{ site.url }}{{ site.baseurl }}/",
+    "jobTitle":"Software Engineering Leader",
+    "sameAs":["https://www.linkedin.com/in/stephen-chris-hull"],
+    "knowsAbout":["Distributed Systems","Edge Computing","Embedded AI","Cloud Infrastructure","Machine Learning Platforms","Kubernetes","Apache Kafka","NVIDIA Jetson"]
+  }
+  </script>
+</head>
