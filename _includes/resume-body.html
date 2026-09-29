@@ -1,11 +1,14 @@
 <div id="resume">
     <aside id="sideNavMenu" aria-label="Resume sections">
-        <button type="button" class="side-nav-toggle" id="sideNavToggle" aria-expanded="false" aria-controls="sideNavLinks">
-            <span class="sr-only">Toggle resume sections</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
+        <div class="side-nav-bar">
+            <button type="button" class="side-nav-toggle" id="sideNavToggle" aria-expanded="false" aria-controls="sideNavLinks">
+                <span class="sr-only">Toggle resume sections</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <span class="side-nav-bar-label" aria-hidden="true">Sections</span>
+        </div>
         <div id="sideNavTop"></div>
         <div id="sideNavMiddle">
             <a class="side-nav-profile page-scroll" href="#about" id="sideNavImg">
@@ -44,6 +47,7 @@
         <div class="container-fluid resume-sections">
             <section id="about">
                 <div class="my-auto">
+                    <img class="resume-profile-mobile" src="{{ site.baseurl }}/img/profile-image.jpeg" alt="Chris Hull" width="140" height="140">
                     <a class="resume-name-link" href="{{ site.baseurl }}/">
                         <h1 class="resume-name mb-0">Chris
                             <span class="text-primary">Hull</span>
