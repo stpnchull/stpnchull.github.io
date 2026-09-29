@@ -348,15 +348,15 @@ body.page-resume {
 .list-icons {
     margin: 0;
     padding: 0;
-    font-size: 43.2px;
+    font-size: 52px;
 
     > li,
     .list-inline-item {
         margin: 0 0.75rem 0.75rem 0;
-        font-size: 43.2px;
+        font-size: 52px;
 
         i {
-            font-size: 43.2px;
+            font-size: 52px;
             line-height: 1;
             color: $resume-text;
         }
@@ -375,6 +375,26 @@ body.page-resume {
     &:last-child {
         margin-bottom: 0;
     }
+}
+
+.resume-project {
+    margin-bottom: 1.25rem;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.resume-project-title {
+    font-family: 'Saira Extra Condensed', 'Open Sans', sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    line-height: 1.2;
+    color: $resume-text;
+    margin: 0 0 0.5rem;
 }
 
 .resume-item-header {
@@ -511,14 +531,14 @@ body.page-resume {
     }
 
     .list-icons {
-        font-size: 43.2px;
+        font-size: 48px;
 
         > li,
         .list-inline-item {
-            font-size: 43.2px;
+            font-size: 48px;
 
             i {
-                font-size: 43.2px;
+                font-size: 48px;
             }
         }
     }

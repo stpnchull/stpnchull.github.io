@@ -8,9 +8,15 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{ site.baseurl }}/#page-top">
+            {% if page.url == '/' or page.url == '/index.html' %}
+            <a class="navbar-brand page-scroll" href="#page-top">
                 <img src="{{ site.baseurl }}/img/loading-in-progress.png" alt="Loading in Progress">
             </a>
+            {% else %}
+            <a class="navbar-brand" href="{{ site.baseurl }}/">
+                <img src="{{ site.baseurl }}/img/loading-in-progress.png" alt="Loading in Progress">
+            </a>
+            {% endif %}
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
