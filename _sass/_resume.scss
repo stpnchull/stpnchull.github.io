@@ -4,7 +4,7 @@ $resume-text: $theme-dark;
 $resume-accent: $theme-accent;
 $resume-side-bg: $theme-dark;
 $resume-side-width: 280px;
-$resume-top-offset: 104px;
+$resume-top-offset: 72px;
 
 .has-page-content.page-resume,
 body.page-resume {
@@ -13,7 +13,7 @@ body.page-resume {
 }
 
 .site-page {
-    padding: $resume-top-offset 0 0;
+    padding: 0;
     background-color: white;
     color: $resume-text;
     overflow-x: hidden;
@@ -485,10 +485,10 @@ body.page-resume {
 }
 
 @media (max-width: 991px) {
-    $resume-top-offset-mobile: 84px;
+    $resume-top-offset-mobile: 64px;
 
     .site-page {
-        padding-top: $resume-top-offset-mobile;
+        padding-top: 0;
     }
 
     #sideNavMenu {

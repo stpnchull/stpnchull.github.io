@@ -9,7 +9,11 @@
 
     // jQuery for page scrolling feature - requires jQuery Easing plugin
     var navHeight = function() {
-        return $('#mainNav').outerHeight();
+        var $header = $('.site-header');
+        if ($header.length) {
+            return $header.outerHeight();
+        }
+        return $('#mainNav').outerHeight() || 0;
     };
 
     $('a.page-scroll[href^="#"]').bind('click', function(event) {
