@@ -1,0 +1,525 @@
+// Resume page
+
+$resume-text: $theme-dark;
+$resume-accent: $theme-accent;
+$resume-side-bg: $theme-dark;
+$resume-side-width: 280px;
+$resume-top-offset: 104px;
+
+.has-page-content.page-resume,
+body.page-resume {
+    background-color: white;
+}
+
+.site-page {
+    padding: $resume-top-offset 0 0;
+    background-color: white;
+    color: $resume-text;
+}
+
+#resume {
+    position: relative;
+    min-height: calc(100vh - #{$resume-top-offset});
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    color: $resume-text;
+    background-color: white;
+
+    h1,
+    h2,
+    h3,
+    .subheading {
+        font-family: 'Saira Extra Condensed', 'Open Sans', sans-serif;
+        font-weight: 500;
+        font-style: normal;
+        text-transform: uppercase;
+        color: $resume-text;
+    }
+
+    .text-primary {
+        color: $resume-accent !important;
+    }
+
+    a {
+        color: $resume-accent;
+        text-decoration: none;
+
+        &:hover,
+        &:focus {
+            color: darken($resume-accent, 8%);
+            text-decoration: none;
+        }
+    }
+
+    p {
+        font-size: 16px;
+        line-height: 24px;
+        margin-bottom: 1rem;
+        font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        color: $resume-text;
+    }
+
+    ul {
+        padding-left: 1.25rem;
+        margin-bottom: 1.5rem;
+
+        li {
+            font-size: 16px;
+            line-height: 24px;
+            margin-bottom: 0.4rem;
+            color: $resume-text;
+        }
+    }
+}
+
+#sideNavMenu {
+    position: fixed;
+    top: $resume-top-offset;
+    left: 0;
+    bottom: 0;
+    width: $resume-side-width;
+    z-index: 100;
+    display: block;
+    background-color: $resume-side-bg;
+    border-right: none;
+    padding: 0;
+    overflow-y: auto;
+}
+
+#sideNavTop {
+    display: block;
+    height: 12%;
+}
+
+#sideNavMiddle {
+    display: block;
+    height: 18%;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    padding: 0 60px;
+
+    a {
+        display: block;
+    }
+
+    img {
+        display: block;
+        width: 160px;
+        height: 160px;
+        max-width: 160px;
+        margin: 0 auto 24px;
+        object-fit: cover;
+        border: 8px solid rgba(255, 255, 255, 0.05);
+        border-radius: 50%;
+        box-shadow: none;
+    }
+}
+
+#sideNavBottom {
+    display: block;
+    height: 70%;
+    width: 100%;
+}
+
+#sideNavLinks.nav,
+#sideNavLinks {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    > li {
+        margin: 0;
+        width: 100%;
+        float: none;
+
+        > a {
+            display: block;
+            padding: 0;
+            margin-top: 1em;
+            font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+            font-size: 19.2px;
+            font-weight: 600;
+            font-style: normal;
+            letter-spacing: normal;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.8) !important;
+            text-decoration: none;
+            line-height: 28.8px;
+            background-color: transparent;
+            @include transition-all;
+
+            &:hover,
+            &:focus {
+                color: $theme-accent !important;
+                background-color: transparent;
+                text-decoration: none;
+            }
+        }
+
+        &.active > a {
+            color: $theme-accent !important;
+            text-decoration: none;
+
+            &:hover,
+            &:focus {
+                color: lighten($theme-accent, 12%) !important;
+            }
+        }
+    }
+}
+
+.side-nav-toggle {
+    display: none;
+    position: fixed;
+    top: ($resume-top-offset + 12px);
+    left: 12px;
+    z-index: 110;
+    width: 44px;
+    height: 40px;
+    padding: 8px 10px;
+    border: 1px solid white;
+    border-radius: 4px;
+    background: $resume-side-bg;
+    cursor: pointer;
+
+    .icon-bar {
+        display: block;
+        width: 22px;
+        height: 2px;
+        margin: 4px auto;
+        background-color: white;
+        border-radius: 1px;
+    }
+}
+
+.resume-main {
+    margin-left: $resume-side-width;
+    position: relative;
+    padding: 0;
+    min-height: calc(100vh - #{$resume-top-offset});
+    font-size: 16px;
+}
+
+#resume .top-right {
+    position: absolute;
+    top: 24px;
+    right: 20px;
+    z-index: 5;
+
+    a {
+        display: inline-block;
+        color: $resume-text;
+        text-decoration: none;
+
+        .fa {
+            font-size: 32px;
+        }
+
+        &:hover,
+        &:focus {
+            color: $resume-accent;
+            text-decoration: none;
+        }
+
+        p {
+            margin: 0.25rem 0 0;
+            font-size: 16px;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            text-transform: none;
+            letter-spacing: 0;
+            color: inherit;
+        }
+    }
+}
+
+.resume-sections {
+    max-width: none;
+    padding: 0;
+
+    > section {
+        padding: 16px 48px;
+        scroll-margin-top: ($resume-top-offset + 24px);
+
+        &#about {
+            padding: 0 48px 16px;
+        }
+    }
+
+    .subheading {
+        font-size: 21.6px;
+        font-weight: 500;
+        letter-spacing: 0.04em;
+        color: $resume-text;
+    }
+
+    .concentration {
+        margin-bottom: 0.5rem;
+        font-size: 16px;
+    }
+
+    h2 {
+        font-size: 56px;
+        font-weight: 500;
+        margin-top: 0;
+        margin-bottom: 16px;
+        line-height: 1.2;
+    }
+
+    h3 {
+        font-size: 28px;
+        font-weight: 500;
+        line-height: 1.2;
+        margin-top: 0;
+    }
+}
+
+.resume-name {
+    font-size: 96px;
+    font-weight: 500;
+    line-height: 88px;
+    margin: 0 0 0.5rem !important;
+    letter-spacing: 0.02em;
+    color: $resume-text;
+
+    a &,
+    a & .text-primary {
+        text-decoration: none;
+    }
+}
+
+#resume a:has(.resume-name),
+#resume .resume-name-link {
+    color: $resume-text;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+        color: $resume-text;
+        text-decoration: none;
+    }
+}
+
+.resume-socials {
+    a {
+        display: inline-block;
+        margin-right: 1.5rem;
+        margin-bottom: 0.5rem;
+        color: $resume-text;
+        text-decoration: none;
+        font-size: 21.6px;
+
+        .fa-stack {
+            width: 2em;
+            height: 2em;
+            line-height: 2em;
+        }
+
+        .fa-circle {
+            color: $resume-text;
+        }
+
+        .fa-inverse {
+            color: white;
+        }
+
+        &:hover,
+        &:focus {
+            color: $resume-accent;
+
+            .fa-circle {
+                color: $resume-accent;
+            }
+        }
+    }
+}
+
+.list-icons {
+    margin: 0;
+    padding: 0;
+    font-size: 43.2px;
+
+    > li,
+    .list-inline-item {
+        margin: 0 0.75rem 0.75rem 0;
+        font-size: 43.2px;
+
+        i {
+            font-size: 43.2px;
+            line-height: 1;
+            color: $resume-text;
+        }
+    }
+}
+
+.divider-full-width {
+    margin: 16px 48px;
+    border: 0;
+    border-top: 2px solid rgba($theme-accent, 0.45);
+}
+
+.resume-item {
+    margin-bottom: 2rem;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.resume-item-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.5rem 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.resume-date {
+    white-space: nowrap;
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0;
+}
+
+@media (max-width: 991px) {
+    $resume-top-offset-mobile: 84px;
+
+    .site-page {
+        padding-top: $resume-top-offset-mobile;
+    }
+
+    #sideNavMenu {
+        top: $resume-top-offset-mobile;
+        width: 100%;
+        height: auto;
+        bottom: auto;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 0.75rem 1rem;
+        border-right: none;
+        border-bottom: none;
+
+        &.is-open {
+            #sideNavLinks {
+                display: flex;
+            }
+        }
+    }
+
+    #sideNavTop {
+        display: none;
+    }
+
+    #sideNavMiddle {
+        height: auto;
+        margin: 0 auto;
+        padding: 0;
+        order: 1;
+
+        img {
+            width: 48px;
+            height: 48px;
+            max-width: 48px;
+            margin: 0;
+            border-width: 2px;
+        }
+    }
+
+    #sideNavBottom {
+        width: 100%;
+        height: auto;
+        order: 3;
+    }
+
+    #sideNavLinks {
+        display: none;
+        text-align: center;
+        margin-top: 0.75rem;
+        padding-top: 0.5rem;
+        border-top: 1px solid rgba(white, 0.25);
+
+        > li > a {
+            margin-top: 0.5em;
+            padding: 0.35rem 0;
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+    }
+
+    .side-nav-toggle {
+        display: block;
+        top: ($resume-top-offset-mobile + 10px);
+        background: $resume-side-bg;
+    }
+
+    .resume-main {
+        margin-left: 0;
+        padding: 0;
+    }
+
+    #resume .top-right {
+        top: 5.25rem;
+        right: 1.25rem;
+    }
+
+    .resume-sections > section {
+        scroll-margin-top: ($resume-top-offset-mobile + 88px);
+        padding: 16px 24px;
+
+        &#about {
+            padding: 72px 24px 16px;
+        }
+    }
+
+    .divider-full-width {
+        margin: 16px 24px;
+    }
+}
+
+@media (max-width: 767px) {
+    .resume-name {
+        font-size: 56px;
+        line-height: 1.05;
+    }
+
+    .resume-sections h2 {
+        font-size: 40px;
+    }
+
+    .resume-item-header {
+        flex-direction: column;
+    }
+
+    .resume-date {
+        white-space: normal;
+    }
+
+    .list-icons {
+        font-size: 43.2px;
+
+        > li,
+        .list-inline-item {
+            font-size: 43.2px;
+
+            i {
+                font-size: 43.2px;
+            }
+        }
+    }
+}

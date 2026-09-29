@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% include head.html %}
+
+<body id="page-top" class="has-page-content{% if page.url == '/resume/' %} page-resume{% endif %}">
+  {% include nav.html %}
+  <main class="site-page">
+    {{ content }}
+  </main>
+  {% include scripts.html %}
+</body>
+
+</html>
