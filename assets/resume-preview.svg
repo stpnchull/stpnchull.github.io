@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 420">
+<defs><filter id="s" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="10" stdDeviation="9" flood-color="#17324f" flood-opacity=".16"/></filter></defs>
+<g transform="translate(36 34) rotate(5 120 160)" opacity=".55"><rect width="236" height="320" rx="5" fill="#f6f9fc" stroke="#d8e2ec"/></g>
+<g filter="url(#s)"><rect x="18" y="15" width="236" height="340" rx="6" fill="white" stroke="#d8e2ec"/></g>
+<text x="136" y="49" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#122233">CHRIS HULL</text>
+<text x="136" y="66" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#74869a">Staff Software Engineer</text>
+<rect x="48" y="83" width="176" height="4" rx="2" fill="#dbe5ef"/>
+<text x="38" y="112" font-family="Arial, sans-serif" font-size="9" font-weight="700" fill="#4a5e72">EXPERIENCE</text>
+<rect x="38" y="122" width="178" height="4" rx="2" fill="#d6e0ea"/><rect x="38" y="137" width="154" height="4" rx="2" fill="#e4eaf0"/><rect x="38" y="150" width="170" height="4" rx="2" fill="#e4eaf0"/><rect x="38" y="163" width="144" height="4" rx="2" fill="#e4eaf0"/>
+<rect x="38" y="185" width="178" height="4" rx="2" fill="#d6e0ea"/><rect x="38" y="200" width="165" height="4" rx="2" fill="#e4eaf0"/><rect x="38" y="213" width="151" height="4" rx="2" fill="#e4eaf0"/>
+<text x="38" y="248" font-family="Arial, sans-serif" font-size="9" font-weight="700" fill="#4a5e72">SKILLS</text>
+<rect x="38" y="258" width="178" height="4" rx="2" fill="#d6e0ea"/><rect x="38" y="273" width="159" height="4" rx="2" fill="#e4eaf0"/><rect x="38" y="286" width="175" height="4" rx="2" fill="#e4eaf0"/><rect x="38" y="299" width="146" height="4" rx="2" fill="#e4eaf0"/><rect x="38" y="322" width="96" height="4" rx="2" fill="#d6e0ea"/>
+</svg>

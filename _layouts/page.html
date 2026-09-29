@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 
-{% include head.html %}
+{% include head-home.html %}
 
 <body id="page-top" class="has-page-content{% if page.url == '/resume/' %} page-resume{% endif %}">
-  {% include nav.html %}
-  <main class="site-page">
+  {% include site-header.html %}
+  <main id="main" class="site-page">
     {{ content }}
   </main>
+  {% include site-footer.html %}
   {% include scripts.html %}
 </body>
 

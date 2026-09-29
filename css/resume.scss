@@ -1,0 +1,13 @@
+---
+---
+@charset "utf-8";
+
+// Resume-only stylesheet — avoids Creative theme rules that break shared chrome
+$theme-primary: #F05F40;
+$theme-accent: #07BAF9;
+$theme-dark: #222;
+
+@import
+    "mixins",
+    "resume"
+;

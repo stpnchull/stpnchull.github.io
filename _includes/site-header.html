@@ -1,0 +1,25 @@
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="shell header-inner">
+    <a class="brand" href="{% if page.url == '/' or page.url == '/index.html' %}#top{% else %}{{ site.baseurl }}/{% endif %}" aria-label="Loading in Progress home">
+      <img src="{{ site.baseurl }}/assets/logo.svg" alt="" width="32" height="32">
+      <span>Loading in Progress</span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      {% if page.url == '/' or page.url == '/index.html' %}
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="{{ site.baseurl }}/resume/">Resume</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#contact">Contact</a>
+      {% else %}
+      <a href="{{ site.baseurl }}/#about">About</a>
+      <a href="{{ site.baseurl }}/#work">Work</a>
+      <a href="{{ site.baseurl }}/resume/" aria-current="page">Resume</a>
+      <a href="{{ site.baseurl }}/#testimonials">Testimonials</a>
+      <a href="#contact">Contact</a>
+      {% endif %}
+    </nav>
+  </div>
+</header>
