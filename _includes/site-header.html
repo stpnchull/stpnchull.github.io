@@ -2,7 +2,7 @@
 
 <header class="site-header" data-site-header>
   <div class="shell header-inner">
-    <a class="brand" href="{% if page.url == '/' or page.url == '/index.html' %}#top{% else %}{{ site.baseurl }}/{% endif %}" aria-label="Loading in Progress home">
+    <a class="brand" href="{{ site.baseurl }}/" data-scroll-top aria-label="Loading in Progress home">
       <img src="{{ site.baseurl }}/assets/logo.svg" alt="" width="32" height="32">
       <span>Loading in Progress</span>
     </a>
@@ -28,9 +28,11 @@
 </header>
 <script>
 (function () {
+  var SECTION_IDS = { top: true, about: true, work: true, testimonials: true, contact: true };
   var header = document.querySelector("[data-site-header]");
   var toggle = document.querySelector("[data-nav-toggle]");
   var nav = document.querySelector("[data-site-nav]");
+  var brand = document.querySelector("[data-scroll-top]");
   if (!header || !toggle || !nav) return;
 
   function setOpen(open) {
@@ -40,12 +42,82 @@
     document.body.classList.toggle("nav-open", open);
   }
 
+  function clearHash() {
+    if (!window.location.hash) return;
+    history.replaceState(null, "", window.location.pathname + window.location.search);
+  }
+
+  function scrollToSection(id, smooth) {
+    if (id === "top") {
+      window.scrollTo({ top: 0, behavior: smooth ? "smooth" : "auto" });
+      return true;
+    }
+    var el = document.getElementById(id);
+    if (!el) return false;
+    el.scrollIntoView({ behavior: smooth ? "smooth" : "auto", block: "start" });
+    return true;
+  }
+
+  function normalizePath(path) {
+    return path.replace(/\/index\.html$/, "/").replace(/\/$/, "") || "/";
+  }
+
+  function sectionIdFromHref(href) {
+    if (!href) return null;
+    var i = href.indexOf("#");
+    if (i < 0) return null;
+    var id = href.slice(i + 1).split("?")[0];
+    return SECTION_IDS[id] ? id : null;
+  }
+
   toggle.addEventListener("click", function () {
     setOpen(!header.classList.contains("is-nav-open"));
   });
 
-  nav.addEventListener("click", function (e) {
-    if (e.target.closest("a")) setOpen(false);
+  if (brand) {
+    brand.addEventListener("click", function (e) {
+      if (!document.getElementById("top")) return;
+      e.preventDefault();
+      setOpen(false);
+      scrollToSection("top", true);
+      clearHash();
+    });
+  }
+
+  document.addEventListener("click", function (e) {
+    var link = e.target.closest("a[href]");
+    if (!link) return;
+
+    var href = link.getAttribute("href");
+    var id = sectionIdFromHref(href);
+    if (!id || id === "top") return;
+
+    var url;
+    try {
+      url = new URL(href, window.location.href);
+    } catch (err) {
+      return;
+    }
+
+    var targetOnThisPage = !!document.getElementById(id);
+    var samePath = normalizePath(url.pathname) === normalizePath(window.location.pathname);
+
+    if (targetOnThisPage && (href.charAt(0) === "#" || samePath)) {
+      e.preventDefault();
+      setOpen(false);
+      scrollToSection(id, true);
+      clearHash();
+      return;
+    }
+
+    // Resume (or other page) → homepage section without leaving a hash in the URL
+    if (!samePath && url.origin === window.location.origin) {
+      e.preventDefault();
+      try {
+        sessionStorage.setItem("scrollToSection", id);
+      } catch (err) {}
+      window.location.href = url.pathname + url.search;
+    }
   });
 
   document.addEventListener("keydown", function (e) {
@@ -55,5 +127,24 @@
   window.addEventListener("resize", function () {
     if (window.matchMedia("(min-width: 761px)").matches) setOpen(false);
   });
+
+  // Arrive from another page, or land with a hash, then keep the URL clean
+  var pending = null;
+  try {
+    pending = sessionStorage.getItem("scrollToSection");
+    if (pending) sessionStorage.removeItem("scrollToSection");
+  } catch (err) {}
+
+  if (pending && scrollToSection(pending, false)) {
+    clearHash();
+  } else if (window.location.hash) {
+    var hashId = window.location.hash.slice(1);
+    if (SECTION_IDS[hashId]) {
+      window.setTimeout(function () {
+        scrollToSection(hashId, false);
+        clearHash();
+      }, 0);
+    }
+  }
 })();
 </script>
